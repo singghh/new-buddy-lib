@@ -113,12 +113,41 @@ contact_subdiv.addEventListener("click",(e)=>{
 
 });
 
-const topup=document.querySelector("#topup");
-const box_conatiner=document.querySelector("header");
-topup.addEventListener("click",e=>{
-    e.preventDefault();
-    box_conatiner.scrollIntoView({behavior:"smooth"});
-})
+function display_help(){
+    const feedbackdiv=document.querySelector(".feedback-div");
+    const topup=document.getElementById("topup");
+    const help_close=document.getElementById("help_close");
+
+    topup.addEventListener("click",function(){
+        feedbackdiv.style.display="block";
+        feedbackdiv.style.zIndex="99"
+        document.body.classList.toggle("dontscroll");
+        document.querySelector("header").style.opacity="0.4";
+        document.querySelector(".navbar-1").style.opacity="0.4";
+        document.querySelector(".navbar-2").style.opacity="0.4";
+        document.querySelector(".box").style.opacity="0.4";
+        document.querySelector(".col-1 h1").style.opacity="0.4";
+        document.querySelector(".search-div").style.opacity="0.4";
+        document.querySelector(".row-1-1").style.opacity="0.4";
+        document.querySelector(".genere-section").style.opacity="0.4";
+        document.querySelector(".how-row").style.opacity="0.4";
+    });
+    help_close.addEventListener("click",function(){
+        document.body.classList.remove("dontscroll");
+        document.querySelector("header").style.opacity="1";
+        document.querySelector(".navbar-1").style.opacity="1";
+        document.querySelector(".navbar-2").style.opacity="1";
+        document.querySelector(".box").style.opacity="1";
+        document.querySelector(".col-1 h1").style.opacity="1";
+        document.querySelector(".search-div").style.opacity="1";
+        document.querySelector(".row-1-1").style.opacity="1";
+        document.querySelector(".genere-section").style.opacity="1";
+        document.querySelector(".how-row").style.opacity="1";
+        feedbackdiv.style.display="none";
+    })
+
+}
+display_help();
 
 // let booknames=[
 
@@ -377,13 +406,8 @@ topup.addEventListener("click",e=>{
 //     resultbox.innerHTML = "<ul>" + cont.join("") + "</ul>"; // Use join to convert the array to a string
 // }
 
-const navlink=document.querySelectorAll(".nav_link");
 
-navlink.forEach(e=>{
-    e.addEventListener("click",()=>{
-        document.querySelector(".active")?.classList.remove("active");
-        e.classList.add("active")
-    })
-})
+
+
 
 
